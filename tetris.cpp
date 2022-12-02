@@ -273,11 +273,13 @@ int main()
             mvwprintw(TetrisLand,nFieldHeight + 4,2,totalScore.c_str());
             wrefresh(TetrisLand);
         } else {
+            for (int x = 0; x < nFieldWidth; x++)
+                    for (int y = 0; y < nFieldHeight; y++)
+                        mvwaddch(TetrisLand,(y + nBoxOffsetY/2),(x + nBoxOffsetX/2),L' ');
             mvwprintw(TetrisLand,(nFieldHeight + nBoxOffsetY)/2 - 1,1,"* GAME  OVER *");
             mvwprintw(TetrisLand,(nFieldHeight + nBoxOffsetY)/2 + 1,2,"HIT X TO END");
             wrefresh(TetrisLand);
         }
-
     }
     // Delete Frame
     delwin(TetrisLand);
